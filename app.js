@@ -6,7 +6,7 @@ const date = require(__dirname +  "/date.js");
 const _ = require("lodash");
 const PORT = process.env.PORT || 3000;
 require('dotenv').config();
-console.log(process.env.ATLAS_URL);
+
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true }));
