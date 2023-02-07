@@ -3,8 +3,8 @@
 
 
 
-  <div class="box" id="heading">
-    <h1> <%= listTitle %></h1>
+  <div class="box main-heading" id="heading">
+    <h2> <%= listTitle %></h2>
   </div>
 
   <div class="box" id="">
@@ -15,7 +15,7 @@
     <%  newListItems.forEach((item) => {  %>
       <form action="/delete" method="post">
         <div class="item">
-          <input name="checkbox" value="<%= item._id %>" type="checkbox" onChange="this.form.submit()">
+          <input class="check-box" name="checkbox" value="<%= item._id %>" type="checkbox" onChange="this.form.submit()">
           <p><%= item.name %></p>
           <input type="hidden" name="listName" value="<%= listTitle %>"></input >
         </div>
@@ -24,8 +24,8 @@
 
     </ul>
     <form class="item" action="/" method="post">
-      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-      <button type="submit" name="list" value="<%= listTitle %>">+</button>
+      <input type="text" name="newItem" placeholder="Typee your list here" autocomplete="off" required autofocus >
+      <button type="submit" name="list" value="<%= listTitle %>"><i class="fa-solid fa-plus"></i></button>
     </form>
   </div>
 

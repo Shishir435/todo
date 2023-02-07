@@ -33,7 +33,7 @@ const itemsSchema = new mongoose.Schema({
 const Item = mongoose.model("Item", itemsSchema);
 
 const item1 = new Item ({
-  name: "Welcome ",
+  name: "Welcome!",
 });
 const item2 = new Item ({
   name: "Hit the + button to add a new item.",
@@ -74,6 +74,17 @@ app.get("/", function(req, res) {
     });
 
 });
+
+app.get("/about", function(req,res){
+  res.render("about");
+});
+app.get("/contact", function(req,res){
+  res.render("contact");
+});
+app.get("/list", function(req,res){
+  res.render("allList");
+});
+
 app.get("/:customListName", function(req,res){
   const customListName = _.capitalize(req.params.customListName);
   List.findOne({name: customListName}, function(err,foundList){
@@ -93,11 +104,12 @@ app.get("/:customListName", function(req,res){
         res.render("list", {listTitle: foundList.name , newListItems: foundList.items})
       }
     }
-  })
+  });
 
-})
+});
 app.post("/", function(req, res){
-
+  const newListName = req.body.newList;
+  console.log(newListName);
   const itemName = req.body.newItem;
   const listName = req.body.list;
   const item = new Item({
@@ -111,10 +123,10 @@ app.post("/", function(req, res){
       foundList.items.push(item);
       foundList.save();
       res.redirect("/" + listName);
-    })
+    });
   }
 
-})
+});
 
 app.post("/delete", function(req,res){
   // console.log(req.body.checkbox);
@@ -128,24 +140,22 @@ app.post("/delete", function(req,res){
       console.log("Deleted Successfully");
       res.redirect("/");
     }
-  })
+  });
 }else{
   List.findOneAndUpdate({name: listName},{$pull: {items: {_id: checkedItemId} }}, function(err, foundList){
     if(!err){
       res.redirect("/" + listName);
     }
-  })
+  });
 }
 });
 
 
-app.get("/about", function(req,res){
-  res.render("about");
-})
 
 
 
 
-app.listen(PORT, () => {
-  console.log("Server is running on port ${PORT}");
-})
+
+app.listen(PORT, ( ) => {
+  console.log("Server is running on port 3000");
+});

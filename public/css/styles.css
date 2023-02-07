@@ -1,27 +1,87 @@
-html {
-  background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
-  min-height: 1000px;
-  font-family: 'helvetica neue';
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-h1 {
+:root {
+  --color-bg1: #9890e3;
+  --color-bg2: #b1f4cf;
+  --color-box: #c4e0e0f4;
+  --color-text: #000;
+}
+
+html {
+  background-color: #e4e9fd;
+  /* background-image: -webkit-linear-gradient(65deg,var(--color-bg1) 50%, var(--color-bg2) 50%); */
+  background-image: linear-gradient(to left, #9890e3 0%, #b1f4cf 100%);
+  min-height: 1000px;
+  font-family: "helvetica neue";
+}
+header {
   color: #fff;
+  text-decoration: none;
+}
+h1 {
+  justify-content: center;
+  padding: 1rem;
+}
+h2 {
+  color: var(--color-text);
   padding: 10px;
 }
-ul{
-      padding-inline-start: 0;
+.main-heading {
+  padding: 0.3rem 0.1rem;
+  font-size: 1.5rem;
 }
+
+.other-page-heading {
+  color: var(--color-text);
+}
+nav {
+  color: var(--color-text);
+  padding: 0.2 0.1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-bottom: 2rem;
+  height: 3rem;
+  display: flex;
+  background: var(--color-box);
+}
+nav div {
+  margin-left: auto;
+}
+nav div ul {
+  float: right;
+  display: flex;
+  list-style: none;
+}
+nav div ul li a {
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: var(--color-text);
+  display: flex;
+  align-items: end;
+  text-decoration: none;
+}
+ul {
+  padding-inline-start: 0;
+}
+
 .box {
   max-width: 400px;
   margin: 50px auto;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  color: var(--color-text);
+  background: transparent;
+  border-radius: 8px;
+
+  /* box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3); */
 }
 
 #heading {
-  background-color: #A683E3;
+  background-color: var(--color-bg1);
   text-align: center;
 }
 
@@ -29,16 +89,32 @@ ul{
   min-height: 70px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #F1F1F1;
+  border-bottom: 1px solid var(--color-bg2);
 }
 
+.item:first-child:not(:checked) {
+  border-radius: 8px;
+  margin: 8px 0;
+  border: 1px solid var(--color-text);
+  background: var(--color-bg2);
+}
+.check-box {
+  
+  width: 20px;                         /* Set width */
+  height: 20px;                        /* Set height */
+  clip-path: circle(40% at 50% 50%);   /* Set the clip path of circle*/
+}
+.item p {
+  color: var(--color-text);
+  text-align: center;
+}
 .item:last-child {
   border-bottom: 0;
 }
 
-input:checked+p {
+input:checked + p {
   text-decoration: line-through;
-  text-decoration-color: #A683E3;
+  text-decoration-color: var(--color-bg1);
 }
 
 input[type="checkbox"] {
@@ -50,10 +126,10 @@ p {
   padding: 20px;
   font-size: 20px;
   font-weight: 200;
-  color: #00204a;
+  color: #35557e;
 }
 
-form.item{
+form.item {
   text-align: center;
   margin-left: 20px;
 }
@@ -63,7 +139,7 @@ button {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #A683E3;
+  background-color: var(--color-bg1);
   color: #fff;
   font-size: 30px;
   padding-bottom: 6px;
@@ -83,7 +159,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #A683E3;
+  box-shadow: inset 0 -3px 0 0 var(--color-bg1);
 }
 
 ::placeholder {
@@ -92,7 +168,41 @@ input[type="text"]:focus {
 }
 
 footer {
-  color: white;
-  color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
   text-align: center;
+}
+.new-list {
+  display: none;
+  transform: translate(-50%, -50%);
+  transition: all 1.5 ease;
+  max-width: fit-content;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  background: var(--color-box);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.new-list input {
+  display: none;
+}
+.newListBitton {
+  box-sizing: border-box;
+}
+.new-list:hover {
+  width: 100%;
+  cursor: pointer;
+}
+.new-list:hover input {
+  display: block;
+}
+.new-list:hover .newListBitton {
+  background: #07051a;
+  color: white;
 }
