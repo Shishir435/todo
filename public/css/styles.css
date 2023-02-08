@@ -214,8 +214,8 @@ p {
   border-width: 0;
 }
 .box3 {
-  
-  max-width: 350px;
+  max-width: 400px;
+ 
   margin: 50px auto;
   background: var(--color-bg2);
   border-radius: 5px;
@@ -227,6 +227,7 @@ p {
 }
 .box3 form p{
   text-align: center;
+  /* margin: 50px auto; */
 }
 .box3 form button{
   margin: 1rem ;
