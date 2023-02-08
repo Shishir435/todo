@@ -163,7 +163,7 @@ app.post("/contact", function(req, res,err){
       });
        
       // contact.save();
-      res.redirect("/");
+      // res.redirect("/");
       
       // if(err){
       //   console.log(err);
