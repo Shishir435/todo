@@ -102,7 +102,7 @@ app.get("/contact", function(req,res){
 });
 app.get("/allList", function(req,res){
   List.find({},function(err,foundLists){
-    console.log(foundLists);
+    // console.log(foundLists);
     res.render("allList",{
     newLists:foundLists
     });
