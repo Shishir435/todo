@@ -1,5 +1,5 @@
 
-   <form action=""  class="new-list">
+   <form action=""  class="new-list" onsubmit="sendEmail(); reset(); return false;">
     <input type="text" class="newListInput" required="true" placeholder="New List" name="newList">
     <button name="newListButton" type="submit" value="2">➕</button>
    </form>
@@ -7,7 +7,8 @@
    <p> Copyright <span id="displayDate"></span> &copy;Shishir </p>
   </footer>
   </html>
-  <script type="text/javascript">
+  
+  <script type="text/javascript" >
     var newDate = new Date();
     newDate.setDate(newDate.getDate() + 1);
     document.getElementById('displayDate').innerHTML =  newDate.getFullYear();

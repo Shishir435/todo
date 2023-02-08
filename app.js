@@ -30,7 +30,26 @@ const itemsSchema = new mongoose.Schema({
   }
 
 });
+const contactsSchema = new mongoose.Schema({
+    name: {
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      required: true
+    },
+    Phone: {
+      type: String,
+      required: true
+    },
+    message: {
+      type: String,
+      required: true
+    }
+});
 const Item = mongoose.model("Item", itemsSchema);
+const Contact = mongoose.model("Contact",contactsSchema);
 
 const item1 = new Item ({
   name: "Welcome!",
@@ -81,8 +100,13 @@ app.get("/about", function(req,res){
 app.get("/contact", function(req,res){
   res.render("contact");
 });
-app.get("/list", function(req,res){
-  res.render("allList");
+app.get("/allList", function(req,res){
+  List.find({},function(err,foundLists){
+    console.log(foundLists);
+    res.render("allList",{
+    newLists:foundLists
+    });
+  });
 });
 
 app.get("/:customListName", function(req,res){
@@ -109,7 +133,7 @@ app.get("/:customListName", function(req,res){
 });
 app.post("/", function(req, res){
   const newListName = req.body.newList;
-  console.log(newListName);
+  // console.log(newListName);
   const itemName = req.body.newItem;
   const listName = req.body.list;
   const item = new Item({
@@ -128,6 +152,40 @@ app.post("/", function(req, res){
 
 });
 
+app.post("/contact", function(req, res,err){
+     
+      const formData = req.body;
+      const contact= new Contact({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message
+      });
+       
+      // contact.save();
+      res.redirect("/");
+      
+      // if(err){
+      //   console.log(err);
+      // }else{
+      //   contact.save();
+      //   res.redirect("/");
+      //   console.log("submitted");
+      // }
+});
+app.post("/new",function(req,res){
+  const newList = req.body.newList;
+  res.redirect("/"+ newList);
+})
+
+app.post("/deleteList",function(req,res){
+  const deletingList = req.body.deletingList;
+  List.findByIdAndDelete(deletingList,function(err){
+    if(!err){
+      res.redirect("/allList");
+    }
+  })
+})
 app.post("/delete", function(req,res){
   // console.log(req.body.checkbox);
   const checkedItemId = req.body.checkbox;

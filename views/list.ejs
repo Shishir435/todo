@@ -9,9 +9,6 @@
 
   <div class="box" id="">
     <ul>
-
-
-
     <%  newListItems.forEach((item) => {  %>
       <form action="/delete" method="post">
         <div class="item">
@@ -24,8 +21,15 @@
 
     </ul>
     <form class="item" action="/" method="post">
-      <input type="text" name="newItem" placeholder="Typee your list here" autocomplete="off" required autofocus >
-      <button type="submit" name="list" value="<%= listTitle %>"><i class="fa-solid fa-plus"></i></button>
+      <input type="text" name="newItem" placeholder="Type your list here" autocomplete="off" required autofocus >
+      <button type="submit" name="list" value="<%= listTitle %>"><i class="fa-solid fa-circle-plus fa-2x"></i></button>
+    </form>
+  </div>
+
+  <div class="box2" id="newListBox">
+    <form class="item" action="/new"  method="post">
+      <input type="text" name="newList" placeholder="New List" autocomplete="off">
+      <button class="btn" type="submit" name="subbut" value=newList><i class="fa-solid fa-circle-plus "></i></button>
     </form>
   </div>
 
