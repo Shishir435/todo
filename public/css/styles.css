@@ -35,6 +35,7 @@ h2 {
   padding: 10px;
 }
 .main-heading {
+  /* margin-top: 4.1rem; */
   padding: 0.3rem 0.1rem;
   font-size: 1rem;
 }
@@ -44,15 +45,16 @@ h2 {
 }
 nav {
   color: var(--color-text);
-  padding: 0.2 0.1;
+  padding: 0.2rem 1rem;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   margin-bottom: 2rem;
-  height: 3rem;
+  height: 4rem;
   display: flex;
   background: var(--color-box);
+  z-index: 2;
 }
 nav div {
   margin-left: auto;
@@ -62,8 +64,13 @@ nav div ul {
   display: flex;
   list-style: none;
 }
+
+nav i:hover, nav ul li a:hover{
+  transform: scale(1.4);
+  color: var(--color-bg1);
+}
 nav div ul li a {
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 1rem;
   color: var(--color-text);
   display: flex;
@@ -86,12 +93,14 @@ nav .social-icons a{
 }
 .box {
   max-width: 400px;
-  margin: 50px auto;
+  margin-top: 100px;
+  margin-bottom: -50px;
+  margin-left: auto;
+  margin-right: auto;
   color: var(--color-text);
   background: transparent;
   border-radius: 8px;
 
-  /* box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3); */
 }
 
 #heading {
@@ -188,7 +197,7 @@ p {
  .box2{
   background: transparent;
   max-width: fit-content;
-  margin: 1rem 1rem;
+  margin: 2rem 1rem;
   border-radius: 10px;
   position: fixed;
   top: 2rem;
@@ -215,7 +224,7 @@ p {
 }
 .box3 {
   max-width: 400px;
- 
+
   margin: 50px auto;
   background: var(--color-bg2);
   border-radius: 5px;
@@ -246,7 +255,7 @@ footer p{
   bottom: -18px;
   width: 100%;
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 .new-list {
@@ -345,3 +354,4 @@ section {
   margin: 20px auto 20px;
   border-radius: 30px;
 }
+
