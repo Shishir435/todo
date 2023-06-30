@@ -1,39 +1,36 @@
-
 <%- include('header'); -%>
 
-
-
-  <div class="box main-heading" id="heading">
-    <h2> <%= listTitle %></h2>
-  </div>
-
-  <div class="box" id="">
-    <ul>
-    <%  newListItems.forEach((item) => {  %>
-      <form action="/delete" method="post">
-        <div class="item">
-          <input class="check-box" name="checkbox" value="<%= item._id %>" type="checkbox" onChange="this.form.submit()">
-          <p><%= item.name %></p>
-          <input type="hidden" name="listName" value="<%= listTitle %>"></input >
-        </div>
-      </form>
-    <%  });  %>
-
-    </ul>
-    <form class="item" action="/" method="post">
-      <input type="text" name="newItem" placeholder="Type your list here" autocomplete="off" required autofocus >
-      <button type="submit" name="list" value="<%= listTitle %>"><i class="fa-solid fa-circle-plus fa-2x"></i></button>
+  <div class="container">
+    <div class="main-heading" id="heading">
+      <h2>
+        <%= listTitle %>
+      </h2>
+    </div>
+    <form class="new-list-item-form" action="/" method="post">
+      <input type="text" name="newItem" placeholder="Type your list here" autocomplete="off" required autofocus>
+      <button type="submit" name="list" value="<%= listTitle %>"><i class="fa-solid fa-circle-plus"></i></button>
     </form>
+    <div class="box" id="">
+      <ul>
+        <% newListItems.forEach((item)=> { %>
+          <form action="/delete" method="post">
+            <div class="item">
+              <input class="check-box" name="checkbox" value="<%= item._id %>" type="checkbox"
+                onChange="this.form.submit()">
+              <p class="">
+                <%= item.name %>
+              </p>
+              <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+            </div>
+          </form>
+          <% }); %>
+      </ul>
+
+    </div>
+
   </div>
 
-  <div class="box2" id="newListBox">
-    <form class="item" action="/new"  method="post">
-      <input type="text" name="newList" placeholder="New List" autocomplete="off">
-      <button class="btn" type="submit" name="subbut" value=newList><i class="fa-solid fa-circle-plus "></i></button>
-    </form>
-  </div>
-
-<%- include('footer'); -%>
+  <%- include('footer'); -%>
 
 
-</html>
+    </html>

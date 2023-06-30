@@ -2,32 +2,26 @@
 
 
 
-<section class="allList" id="allList" style="margin-top: 50px;">
+<section class="container">
    
-   <div class="box " id="heading">
-    <h2 class="main-heading"> All List</h2>
+   <div class="main-heading" id="heading">
+    <h2 class="">Lists</h2>
   </div>
 
-   <div class="box3">
+  
        <form action="/deleteList" method="post">
-           <p > <a class="link" href="/">Today</a></p>
            <% for(var i=1;i<newLists.length;i++){ %>
-               <p >    
-                   <a class="link" href="<%= newLists[i].name %>"><%= newLists[i].name %></a>
+              <div>
+            <div class="item all-lists">    
+                   <a class="list-link" href="<%= newLists[i].name %>"><%= newLists[i].name %></a>
                    <button type="submit" name="deletingList" value="<%= newLists[i]._id %>" ><i class="fa-solid fa-trash fa-2x"></i></button>
-               </p>
+                </div>
+            </div> 
            <% } %>
        </form>
        
-   </div>
-   
-   
-   <div class="box2">
-       <form class="item" action="/new"  method="post">
-         <input type="text" name="newList" placeholder="New List" autocomplete="off">
-         <button class="btn" type="submit" name="subbut" value=newList><i class="fa-solid fa-circle-plus "></i></button>
-       </form>
-     </div>
+ 
+
 </section>
 
 <%- include('footer'); -%>

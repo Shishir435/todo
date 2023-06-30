@@ -1,34 +1,35 @@
+
+
+  
+</body>
+</html>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
-  <title>To Do list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoList</title>
   <script src="https://kit.fontawesome.com/6f97017ff6.js" crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="manifest" href="images/site.webmanifest">
-  <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="css/styles.css">
-  
 </head>
 <header>
   <nav>
-    <h1><i class="fa-solid fa-clipboard-list "></i></h1>
-      <div class="social-icons">
-        <a href="https://github.com/Shishir435" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/shishir-chaurasiya-b3b7ab234/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/_shishir435/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      </div>
+    <div class="logo">
+      <h1><a href="/"><i class="fa-solid fa-clipboard-list "></i></a></h1>
+    </div>
+     <div class="new-list">
+        <form class="new-list-form" action="/new"  method="post">
+          <input class="new-list-input" type="text" name="newList" placeholder="Create New List" autocomplete="off">
+          <button class="btn new-list-btn" type="submit" name="submit" value=newList><i class="fa-solid fa-circle-plus "></i></button>
+        </form>
+  
+     </div>
     <div>
-     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/allList">All List</a></li>
-      <li><a href="/about">About</a> </li>
-      <li><a href="/contact">Contact</a></li>
+     <ul class="links">
+      <li><a href="/allList">Lists</a></li>
      </ul>
     </div>
   </nav>
