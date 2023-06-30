@@ -33,7 +33,7 @@ const itemsSchema = new mongoose.Schema({
 });
 
 const Item = mongoose.model("Item", itemsSchema);
-const Contact = mongoose.model("Contact", contactsSchema);
+
 
 const item1 = new Item({
   name: "Welcome!",
