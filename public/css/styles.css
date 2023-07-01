@@ -93,9 +93,9 @@ nav{
   gap: 1rem;
 }
 .container{
-  max-width: 400px;
+  max-width: 80vw;
   margin: 30px auto;
-  max-height: 400px;
+  max-height: 60vh;
   overflow-y: scroll;
 }
 .main-heading,
@@ -114,7 +114,6 @@ nav{
   padding: 0.5rem;
   align-items: center;
   background-color: #eb5967;
-  border-bottom: 1px solid var(--color-bg2);
 }
 
 .item:first-child:not(:checked) {
@@ -190,11 +189,11 @@ nav{
   color: #fff;
 }
 footer{
-  position: sticky;
-  bottom: 0;
+  position: fixed;
+  bottom: 0vh;
   width: 100%;
-  transform: translateY(60px);
-  padding: 1rem;
+  /* transform: translateY(60px); */
+  padding: 0.6rem;
   z-index: 3;
   color: #fff;
   text-align: center;
@@ -223,4 +222,26 @@ footer{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: transparent; 
+}
+
+@media  screen and (max-width: 600px) {
+  .container{
+   
+    /* max-height: 600px; */
+    transform: translateX(5px);
+  }
+  html{
+
+    background-color: #001220;
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+  .container{
+    max-width: 600px;
+  }
+  nav{
+    max-width: 900px;
+  }
 }
