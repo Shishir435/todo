@@ -16,9 +16,9 @@
 
 body {
   background-color: #e4e9fd;
-  /* background-image: -webkit-linear-gradient(65deg,var(--color-bg1) 50%, var(--color-bg2) 50%); */
   background-image: url(../images/layered-waves-haikei.svg);
   background-size: cover;
+  object-fit: cover;
   background-repeat: no-repeat;
   text-transform: capitalize;
   overflow-y: auto;
@@ -136,9 +136,6 @@ nav{
 .box input[type="checkbox"] {
   margin: 0 10px;
 }
-
-
-
 .new-list-item-form{
    width: 100%;
    min-height: 50px;

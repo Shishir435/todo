@@ -1,27 +1,16 @@
 <%- include('header'); -%>
-
-
-
-<section class="container">
-   
-   <div class="main-heading" id="heading">
-    <h2 class="">Lists</h2>
-  </div>
-
-  
-       <form action="/deleteList" method="post">
-           <% for(var i=1;i<newLists.length;i++){ %>
-              <div>
-            <div class="item all-lists">    
-                   <a class="list-link" href="<%= newLists[i].name %>"><%= newLists[i].name %></a>
-                   <button type="submit" name="deletingList" value="<%= newLists[i]._id %>" ><i class="fa-solid fa-trash fa-2x"></i></button>
-                </div>
-            </div> 
-           <% } %>
-       </form>
-       
- 
-
-</section>
-
-<%- include('footer'); -%>
+  <section class="container">
+    <div class="main-heading" id="heading">
+      <h2 class="">Lists</h2>
+    </div>
+    <form action="/deleteList" method="post">
+      <% for(var i=1;i<newLists.length;i++){ %>
+        <div>
+          <div class="item all-lists"><a class="list-link" href="<%=newLists[i].name %>">
+              <%=newLists[i].name %>
+            </a><button type="submit" name="deletingList" value="<%=newLists[i]._id %>"><i
+                class="fa-solid fa-trash fa-2x"></i></button></div>
+        </div>
+        <%} %>
+    </form>
+  </section><%- include('footer'); -%>
